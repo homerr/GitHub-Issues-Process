@@ -74,4 +74,8 @@ Each release has several tasks that need to be carried out to finalize the relea
 
 The first step is to update the test and development databases with the latest data from production.  Following that, we publish the completed release to the test environment and perform integration testing.  Once all of the release items have passed integration testing, we deploy the release and update any pending operational items to indicate which ones can now be worked on.  The following graphic shows the individual steps for this process.
 
+## Attribution
+
+This was originally sourced from thisisarray/GitHub-Issues-Process and has been modified to better suit the processes and workloads of LinuxServer.io 
+
 ![Sprint Closure Process](flowcharts/sprint-closure.png)
