@@ -15,14 +15,14 @@ Any issue with a ![](img-labels/trash.png) label is automatically excluded from 
 
 State | Label | Open? | % | Description
 ---|---|---|---|---
-Backlog | n/a | Open | 0% | Issues have been identified but are not yet ready for development. Backlogged issues are typically not in a milestone.
-In Analysis | ![](img-labels/in-analysis.png) | Open | 10% | Issues are actively being analyzed, typically by a Business Analyst or Lead Developer, to ensure the work is Ready for development.
-Ready | ![](img-labels/ready.png) | Open  | 20% | Issues have been fleshed out to the point where they are believed to be ready to be acted upon by developers working on the associated milestone.
-In Progress | ![](img-labels/in-progress.png) | Open | 30% | Issues are actively being worked on by a developer or another person (if not a coding task).  With the exception of items that are blocked or returned to development due to failed tests, each developer should strive to have as few items in this state as possible.
-In Review | ![](img-labels/in-review.png) | Open | 70% | The developer believes he/she is complete and has submitted the issue for peer review.
-Feature Testing | ![](img-labels/feature-testing.png) | Open | 80% | Issues are code complete and can be acted on by testers.  All code is assumed to be checked in and deployed to the appropriate environments for testing.
-Integration Testing | ![](img-labels/integration-testing.png) | Open | 90% | Issues have been unit tested and are ready for closure pending end of sprint integration testing.
-Done | n/a | Closed | 100% | Issues have passed testing and are closed.
+backlog | n/a | Open | 0% | Issues have been identified but are not yet ready for development. Backlogged issues are typically not in a milestone.
+analysis | ![](img-labels/in-analysis.png) | Open | 10% | Issues are actively being analysed to determine whether it can be progressed 
+ready | ![](img-labels/ready.png) | Open  | 20% | Issues have been fleshed out to the point where they are believed to be ready to be acted upon by developers
+inprogress | ![](img-labels/in-progress.png) | Open | 30% | Issues are being worked on by a developer or another person (if not a coding task).  With the exception of items that are blocked or returned to development due to failed tests, each developer should strive to have as few items in this state as possible.
+review | ![](img-labels/in-review.png) | Open | 70% | The developer believes he/she is complete and has submitted the issue for peer review.
+ci-test | ![](img-labels/feature-testing.png) | Open | 80% | Issues are code complete and can be acted on by testers.  All code is assumed to be checked in and deployed to the appropriate environments for testing.
+final-test | ![](img-labels/integration-testing.png) | Open | 90% | Issues have been tested and are ready for closure.
+done | n/a | Closed | 100% | Issues have passed testing and are closed.
 
 ## Helper Labels
 The following labels are not states, per se, but help to communicate information about the issue.
@@ -52,17 +52,11 @@ To run the script:
 * Set execute permissions; `chmod +x /path/set-github-labels.sh`.
 * Drag the file into Terminal.
 
-# Schedule the project in GitHub
+## CI Testing
+Items in the ci-testing state have been developed and tested locally by the developer, and changes have been comitted for the CI process to conduct tests on. 
 
-1. Create a Milestone
-  * Name in the format "v[#.##]". Ex: "v0.01"
-  * Select the Due Date
-1. Assign issues to each milestone
-1. Create an overall project schedule using [milepost](http://milepost.io).
-1. When satisfied with the schedule, email to the team and the client.
-
-## Integration Testing
-Items in the integration testing state have passed all unit tests in the development environment and are considered complete pending final end of phase integration testing.  Once all development work for the sprint has been completed, items will be integration tested before being moved to Done.
+## Final Testing
+If an item is in final-test then the CI tests have passed. The developer may require further, wider testing, before a PR is merged for any large changes. 
 
 ## Failed Tests
 When a test fails, in addition to moving the item back to **In Development**, the tester should apply the **Test Failed** label and re-assign the issue to the original developer.  This will aid in tracking priorities and help developers identify what needs their immediate attention.
@@ -77,5 +71,3 @@ The first step is to update the test and development databases with the latest d
 ## Attribution
 
 This was originally sourced from thisisarray/GitHub-Issues-Process and has been modified to better suit the processes and workloads of LinuxServer.io 
-
-![Sprint Closure Process](flowcharts/sprint-closure.png)
